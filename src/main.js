@@ -265,10 +265,30 @@ function initializeMobileOptimizations() {
 }
 
 function addTouchFriendlyInteractions() {
-    // Add larger touch targets for mobile
+    // Add mobile-specific team card flip interaction
     const teamCards = document.querySelectorAll('.team-card')
     teamCards.forEach(card => {
-        // Add touch event for mobile flip interaction
+        let isFlipped = false
+        
+        // Add click/touch handler for mobile flip interaction
+        card.addEventListener('click', function(e) {
+            // Only handle on mobile/touch devices
+            if (window.innerWidth <= 768 || 'ontouchstart' in window) {
+                e.preventDefault()
+                e.stopPropagation()
+                
+                // Toggle flip state
+                isFlipped = !isFlipped
+                
+                if (isFlipped) {
+                    this.classList.add('mobile-flipped')
+                } else {
+                    this.classList.remove('mobile-flipped')
+                }
+            }
+        })
+        
+        // Add touch feedback for all interactive elements
         card.addEventListener('touchstart', function() {
             this.classList.add('touch-active')
         })
