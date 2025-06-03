@@ -978,7 +978,7 @@ section.sr-visible + section::before {
 
 .team-card:hover .team-card-inner,
 .team-card:focus-within .team-card-inner,
-.team-card.mobile-flipped .team-card-inner {
+.team-card.flipped .team-card-inner {
   transform: rotateY(180deg);
 }
 
@@ -2338,21 +2338,21 @@ section.sr-visible + section::before {
 
 @media (max-width: 600px) {
   .gallery-carousel {
-    min-height: 180px;
+    min-height: 300px;
   }
   .gallery-carousel__track {
-    gap: 0.5rem;
+    gap: 1rem;
   }
   .gallery-tile {
-    flex: 0 0 140px;
-    width: 140px;
-    height: 140px;
+    flex: 0 0 280px;
+    width: 280px;
+    height: 280px;
   }
   .carousel-btn {
-    width: 36px;
-    height: 36px;
-    font-size: 1.1rem;
-    margin: 0 0.25rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    margin: 0 0.5rem;
   }
 }
 
@@ -2563,5 +2563,20 @@ section.sr-visible + section::before {
   .team-card:focus-within,
   .team-card.touch-active {
     transform: translateY(-4px) scale(1.02);
+  }
+}
+
+/* Better mobile team card experience */
+@media (max-width: 768px) {
+  .team-card:hover .team-card-inner {
+    transform: none; /* Disable hover flip on mobile */
+  }
+  
+  .team-card.flipped .team-card-inner {
+    transform: rotateY(180deg); /* Ensure click flip still works */
+  }
+  
+  .team-card {
+    cursor: pointer;
   }
 }
