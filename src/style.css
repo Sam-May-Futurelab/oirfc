@@ -1346,17 +1346,68 @@ section.sr-visible + section::before {
 /* Responsive table styles */
 @media (max-width: 768px) {
   .fixtures__table {
-    font-size: 0.9rem;
-    min-width: 600px;
+    font-size: 0.85rem;
+    min-width: 100%; /* Remove fixed min-width */
+    display: block; /* Make table behave as block element */
+    white-space: nowrap; /* Keep content on one line but allow table to shrink */
   }
   
-  .fixtures__table th,
+  .fixtures__table thead,
+  .fixtures__table tbody,
+  .fixtures__table tr {
+    display: block;
+  }
+  
+  .fixtures__table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px; /* Hide table headers on mobile */
+  }
+  
+  .fixtures__table tbody tr {
+    border: 1px solid #ddd;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: var(--border-radius-small);
+    background: var(--accent-color);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: block;
+  }
+  
   .fixtures__table td {
-    padding: 12px 8px;
+    border: none;
+    padding: 0.5rem 0;
+    display: block;
+    text-align: left !important;
+    border-bottom: 1px solid rgba(12, 27, 51, 0.1);
+  }
+  
+  .fixtures__table td:last-child {
+    border-bottom: none;
+  }
+  
+  .fixtures__table td:before {
+    content: attr(data-label) ": ";
+    font-weight: 600;
+    color: var(--primary-color);
+    font-family: var(--font-heading);
+    display: inline-block;
+    min-width: 80px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
   }
   
   .fixtures__table .team-name {
     font-size: 0.9rem;
+  }
+  
+  .fixtures__table .team-info {
+    gap: 6px;
+  }
+  
+  .fixtures__table .team-logo {
+    font-size: 1rem;
   }
   
   .btn {
