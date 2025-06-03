@@ -341,6 +341,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   color: var(--primary-color);
   letter-spacing: 2px;
+  white-space: nowrap; /* Ensure it stays on one line */
 }
 
 .navbar__menu {
@@ -386,6 +387,7 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
   cursor: pointer;
   padding: 0.5rem;
+  z-index: 1002;
 }
 
 .bar {
@@ -395,6 +397,93 @@ h1, h2, h3, h4, h5, h6 {
   margin: 3px 0;
   transition: var(--transition);
   border-radius: 2px;
+}
+
+/* Hamburger animation when active */
+.navbar__toggle.active .bar:nth-child(1) {
+  transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.navbar__toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar__toggle.active .bar:nth-child(3) {
+  transform: rotate(45deg) translate(-6px, -6px);
+}
+
+/* Mobile sidebar menu */
+@media (max-width: 768px) {
+  .navbar__toggle {
+    display: flex;
+  }
+  
+  .navbar__menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: var(--accent-color);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0;
+    padding-top: 80px;
+    transition: right 0.3s ease-in-out;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+  }
+  
+  .navbar__menu.active {
+    right: 0;
+  }
+  
+  .navbar__item {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgba(12, 27, 51, 0.1);
+  }
+  
+  .navbar__link {
+    display: block;
+    padding: 1.2rem 2rem;
+    width: 100%;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-bottom: none;
+  }
+  
+  .navbar__link:hover {
+    background: rgba(12, 27, 51, 0.05);
+    color: var(--primary-dark);
+  }
+  
+  .navbar__link::after {
+    display: none;
+  }
+  
+  /* Ensure logo text stays on one line and is readable */
+  .navbar__logo-text {
+    white-space: nowrap;
+    font-size: 1.2rem !important;
+    letter-spacing: 1px;
+  }
+}
+
+/* Mobile overlay when menu is open */
+@media (max-width: 768px) {
+  .navbar__menu.active::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
 }
 
 /* Navbar adjustments for mobile */
@@ -407,11 +496,9 @@ h1, h2, h3, h4, h5, h6 {
     width: auto;
   }
   .navbar__logo-text {
-    font-size: 1.1rem;
+    font-size: 1.1rem !important;
     letter-spacing: 1px;
-  }
-  .navbar__menu {
-    gap: 1.2rem;
+    white-space: nowrap;
   }
 }
 
@@ -501,33 +588,83 @@ h1, h2, h3, h4, h5, h6 {
   flex-wrap: wrap;
 }
 
-.hero__scroll-indicator {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 3;
+/* Mobile optimizations for hero section */
+@media (max-width: 768px) {
+  .hero__content h1 {
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+  
+  .hero__content p {
+    font-size: clamp(1.1rem, 4vw, 1.3rem);
+    margin-bottom: 2rem;
+  }
+  
+  .hero__logo-img {
+    height: 80px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero__cta {
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: center;
+  }
+  
+  .hero__cta .btn {
+    width: 100%;
+    max-width: 280px;
+    padding: 16px 24px;
+    font-size: 1rem;
+  }
 }
 
-.scroll-arrow {
-  width: 30px;
-  height: 30px;
-  border: 2px solid var(--accent-color);
-  border-top: none;
-  border-right: none;
-  transform: rotate(-45deg);
-  animation: bounce 2s infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0) rotate(-45deg); }
-  40% { transform: translateX(-50%) translateY(-10px) rotate(-45deg); }
-  60% { transform: translateX(-50%) translateY(-5px) rotate(-45deg); }
+/* Additional mobile optimizations for smaller screens */
+@media (max-width: 480px) {
+  .hero__content h1 {
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+  }
+  
+  .hero__content p {
+    font-size: 1.1rem;
+  }
+  
+  .hero__logo-img {
+    height: 70px;
+  }
+  
+  /* Ensure buttons don't overflow on very small screens */
+  .btn {
+    padding: 14px 20px;
+    font-size: 0.9rem;
+    min-width: 100px;
+  }
+  
+  .btn--large {
+    padding: 16px 24px;
+    font-size: 1rem;
+  }
+  
+  /* Section padding adjustments for mobile */
+  section {
+    padding: 3rem 0;
+  }
+  
+  .section-header {
+    margin-bottom: 3rem;
+  }
+  
+  .section-title {
+    font-size: clamp(2rem, 6vw, 2.8rem);
+    margin-bottom: 1rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+  }
 }
 
 /* Section Styling */
@@ -2325,4 +2462,75 @@ section.sr-visible + section::before {
   color: var(--primary-color);
   box-shadow: 0 8px 32px #FFD70044;
   transform: translateY(-4px) scale(1.08);
+}
+
+/* Touch interaction improvements for mobile */
+.touch-active {
+  transform: scale(0.98);
+  opacity: 0.8;
+  transition: transform 0.1s, opacity 0.1s;
+}
+
+/* Improve button touch targets on mobile */
+@media (max-width: 768px) {
+  .btn {
+    min-height: 44px;
+    padding: 14px 24px;
+  }
+  
+  .navbar__toggle {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 8px;
+  }
+  
+  .tab-btn {
+    min-height: 44px;
+    padding: 12px 20px;
+  }
+  
+  .filter-btn {
+    min-height: 44px;
+    padding: 10px 16px;
+  }
+}
+
+/* Improve focus states for mobile */
+@media (max-width: 768px) {
+  .btn:focus,
+  .tab-btn:focus,
+  .filter-btn:focus,
+  .navbar__link:focus {
+    outline: 3px solid #FFD700;
+    outline-offset: 2px;
+  }
+  
+  /* Better contrast for touch feedback */
+  .btn:active {
+    transform: scale(0.95);
+  }
+  
+  .tab-btn:active,
+  .filter-btn:active {
+    transform: scale(0.95);
+  }
+}
+
+/* Smooth transitions for mobile interactions */
+@media (max-width: 768px) {
+  .team-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .news-card,
+  .join-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  /* Ensure hover effects work on mobile touch */
+  .team-card:hover,
+  .team-card:focus-within,
+  .team-card.touch-active {
+    transform: translateY(-4px) scale(1.02);
+  }
 }

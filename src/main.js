@@ -3,12 +3,13 @@ import './style.css'
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     console.log('OIR FC Website - Initializing...')
-    
-    initializeNavigation()
+      initializeNavigation()
     initializeTabFunctionality() // This will handle the fixtures tabs
     initializeFormHandling()
     initializeSectionReveal();
     initializeGalleryCarousel();
+    initializeMobileOptimizations();
+    initializeBackToTop();
     
     console.log('OIR FC Website - Initialization complete!')
 })
@@ -17,14 +18,53 @@ document.addEventListener('DOMContentLoaded', function() {
 function initializeNavigation() {
     const mobileMenuBtn = document.querySelector('#mobile-menu')
     const navLinks = document.querySelector('#navbar-menu')
+    const navbar = document.querySelector('.navbar')
 
     // Mobile menu toggle
     if (mobileMenuBtn && navLinks) {
-        mobileMenuBtn.addEventListener('click', () => {
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation()
             navLinks.classList.toggle('active')
             mobileMenuBtn.classList.toggle('active')
+            
+            // Prevent body scroll when menu is open
+            if (navLinks.classList.contains('active')) {
+                document.body.style.overflow = 'hidden'
+            } else {
+                document.body.style.overflow = ''
+            }
         })
     }
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (navLinks && navLinks.classList.contains('active') && 
+            !navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+            navLinks.classList.remove('active')
+            if (mobileMenuBtn) mobileMenuBtn.classList.remove('active')
+            document.body.style.overflow = ''
+        }
+    })
+
+    // Close mobile menu on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navLinks && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active')
+            if (mobileMenuBtn) mobileMenuBtn.classList.remove('active')
+            document.body.style.overflow = ''
+        }
+    })
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+        if (navbar) {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled')
+            } else {
+                navbar.classList.remove('scrolled')
+            }
+        }
+    })
 
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -33,15 +73,21 @@ function initializeNavigation() {
             const targetId = this.getAttribute('href')
             const target = document.querySelector(targetId)
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                })
                 // Close mobile menu if open
                 if (navLinks && navLinks.classList.contains('active')) {
                     navLinks.classList.remove('active')
                     if (mobileMenuBtn) mobileMenuBtn.classList.remove('active')
+                    document.body.style.overflow = ''
                 }
+                
+                // Smooth scroll to target
+                const navbarHeight = navbar ? navbar.offsetHeight : 70
+                const targetPosition = target.offsetTop - navbarHeight
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                })
             }
         })
     })
@@ -199,6 +245,160 @@ function initializeGalleryCarousel() {
 
     if (prevBtn) prevBtn.onclick = () => scrollCarousel(-1);
     if (nextBtn) nextBtn.onclick = () => scrollCarousel(1);
+}
+
+// Mobile-specific utilities
+function initializeMobileOptimizations() {
+    console.log('Initializing mobile optimizations...')
+    
+    // Add touch-friendly interactions
+    addTouchFriendlyInteractions()
+    
+    // Handle orientation changes
+    handleOrientationChange()
+    
+    // Optimize scroll performance
+    optimizeScrollPerformance()
+    
+    // Add mobile-specific accessibility improvements
+    addMobileAccessibility()
+}
+
+function addTouchFriendlyInteractions() {
+    // Add larger touch targets for mobile
+    const teamCards = document.querySelectorAll('.team-card')
+    teamCards.forEach(card => {
+        // Add touch event for mobile flip interaction
+        card.addEventListener('touchstart', function() {
+            this.classList.add('touch-active')
+        })
+        
+        card.addEventListener('touchend', function() {
+            setTimeout(() => {
+                this.classList.remove('touch-active')
+            }, 200)
+        })
+    })
+    
+    // Improve mobile tab interactions
+    const tabBtns = document.querySelectorAll('.tab-btn')
+    tabBtns.forEach(btn => {
+        btn.addEventListener('touchend', function(e) {
+            e.preventDefault()
+            this.click()
+        })
+    })
+}
+
+function handleOrientationChange() {
+    window.addEventListener('orientationchange', function() {
+        // Recalculate layout after orientation change
+        setTimeout(() => {
+            window.dispatchEvent(new Event('resize'))
+        }, 100)
+    })
+}
+
+function optimizeScrollPerformance() {
+    // Use passive event listeners for better scroll performance
+    let ticking = false
+    
+    function updateScrollElements() {
+        const navbar = document.querySelector('.navbar')
+        const backToTopBtn = document.getElementById('back-to-top')
+        
+        if (navbar) {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled')
+            } else {
+                navbar.classList.remove('scrolled')
+            }
+        }
+        
+        if (backToTopBtn) {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'flex'
+            } else {
+                backToTopBtn.style.display = 'none'
+            }
+        }
+        
+        ticking = false
+    }
+    
+    function requestScrollUpdate() {
+        if (!ticking) {
+            requestAnimationFrame(updateScrollElements)
+            ticking = true
+        }
+    }
+    
+    window.addEventListener('scroll', requestScrollUpdate, { passive: true })
+}
+
+function addMobileAccessibility() {
+    // Improve focus management for mobile
+    const focusableElements = document.querySelectorAll('button, a, input, select, textarea, [tabindex]:not([tabindex="-1"])')
+    
+    // Add touch feedback for interactive elements
+    focusableElements.forEach(element => {
+        element.addEventListener('touchstart', function() {
+            this.style.opacity = '0.7'
+        }, { passive: true })
+        
+        element.addEventListener('touchend', function() {
+            this.style.opacity = ''
+        }, { passive: true })
+    })
+    
+    // Ensure mobile menu is accessible
+    const mobileMenuBtn = document.querySelector('#mobile-menu')
+    const navMenu = document.querySelector('#navbar-menu')
+    
+    if (mobileMenuBtn && navMenu) {
+        // Add ARIA attributes for accessibility
+        mobileMenuBtn.setAttribute('aria-expanded', 'false')
+        mobileMenuBtn.setAttribute('aria-controls', 'navbar-menu')
+        navMenu.setAttribute('aria-hidden', 'true')
+        
+        // Update ARIA attributes when menu state changes
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                    const isActive = navMenu.classList.contains('active')
+                    mobileMenuBtn.setAttribute('aria-expanded', isActive.toString())
+                    navMenu.setAttribute('aria-hidden', (!isActive).toString())
+                }
+            })
+        })
+        
+        observer.observe(navMenu, { attributes: true, attributeFilter: ['class'] })
+    }
+}
+
+// Enhanced back to top functionality
+function initializeBackToTop() {
+    const backToTopBtn = document.getElementById('back-to-top')
+    
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            })
+        })
+        
+        // Add keyboard support
+        backToTopBtn.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault()
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                })
+            }
+        })
+    }
 }
 
 window.addEventListener('scroll', () => {
