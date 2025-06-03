@@ -1206,32 +1206,64 @@ section.sr-visible + section::before {
 .footer {
   background: var(--background-dark);
   color: var(--accent-color);
-  padding: 4rem 0 2rem;
+  padding: 2rem 0 1rem;
   text-align: center;
+  font-size: 0.98rem;
 }
 
 .footer__content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 3rem;
-  margin-bottom: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
   text-align: left;
 }
 
-.footer__section h3 {
+.footer__section {
+  min-width: 160px;
+  flex: 1 1 160px;
+  padding: 0 0.5rem;
+}
+
+.footer__logo img {
+  width: 38px;
+  height: 38px;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
+.footer__logo span {
+  font-size: 1.1rem;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+.footer__section h4 {
   color: var(--accent-color);
-  margin-bottom: 1.5rem;
-  font-size: 1.3rem;
+  margin-bottom: 0.7rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+.footer__section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer__section ul li {
+  margin-bottom: 0.3rem;
 }
 
 .footer__section p,
 .footer__section a {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
-  line-height: 1.8;
+  line-height: 1.5;
   transition: var(--transition);
+  font-size: 0.97rem;
 }
 
 .footer__section a:hover {
@@ -1239,38 +1271,139 @@ section.sr-visible + section::before {
 }
 
 .footer__bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1rem;
   text-align: center;
   color: rgba(255, 255, 255, 0.6);
+  font-size: 0.92rem;
 }
 
-/* Social Links */
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 2rem;
+.footer__legal {
+  margin-top: 0.5rem;
 }
 
-.social-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  text-decoration: none;
-  font-size: 1.5rem;
+.footer__legal a {
+  color: #FFD700;
+  margin: 0 0.5rem;
+  font-size: 0.92rem;
+}
+
+.footer__legal a:hover {
+  text-decoration: underline;
+}
+
+/* Social links smaller in footer */
+.footer .social-links {
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+.footer .social-link {
+  width: 36px;
+  height: 36px;
+  font-size: 1.1rem;
+}
+
+/* --- Compact Footer Styles --- */
+.footer {
+  background: var(--background-dark);
   color: var(--accent-color);
-  transition: var(--transition);
+  padding: 2rem 0 1rem;
+  text-align: center;
+  font-size: 0.98rem;
 }
 
-.social-link:hover {
-  background: var(--primary-color);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(220, 20, 60, 0.4);
+.footer__content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.footer__section {
+  min-width: 160px;
+  flex: 1 1 160px;
+  padding: 0 0.5rem;
+}
+
+.footer__logo img {
+  width: 38px;
+  height: 38px;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
+.footer__logo span {
+  font-size: 1.1rem;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+.footer__section h4 {
+  color: var(--accent-color);
+  margin-bottom: 0.7rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer__section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer__section ul li {
+  margin-bottom: 0.3rem;
+}
+
+.footer__section p,
+.footer__section a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  line-height: 1.5;
+  transition: var(--transition);
+  font-size: 0.97rem;
+}
+
+.footer__section a:hover {
+  color: var(--accent-color);
+}
+
+.footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.92rem;
+}
+
+.footer__legal {
+  margin-top: 0.5rem;
+}
+
+.footer__legal a {
+  color: #FFD700;
+  margin: 0 0.5rem;
+  font-size: 0.92rem;
+}
+
+.footer__legal a:hover {
+  text-decoration: underline;
+}
+
+/* Social links smaller in footer */
+.footer .social-links {
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+.footer .social-link {
+  width: 36px;
+  height: 36px;
+  font-size: 1.1rem;
 }
 
 /* Additional Sections */
