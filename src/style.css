@@ -397,6 +397,37 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 2px;
 }
 
+/* Navbar adjustments for mobile */
+@media (max-width: 600px) {
+  .navbar__container {
+    padding: 0.6rem 1rem;
+  }
+  .navbar__logo-img {
+    height: 32px;
+    width: auto;
+  }
+  .navbar__logo-text {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+  }
+  .navbar__menu {
+    gap: 1.2rem;
+  }
+}
+
+/* Reduce navbar height and logo size for tablets */
+@media (max-width: 900px) {
+  .navbar__container {
+    padding: 0.8rem 1.2rem;
+  }
+  .navbar__logo-img {
+    height: 38px;
+  }
+  .navbar__logo-text {
+    font-size: 1.3rem;
+  }
+}
+
 /* Hero Section */
 .hero {
   position: relative;
@@ -2294,14 +2325,4 @@ section.sr-visible + section::before {
   color: var(--primary-color);
   box-shadow: 0 8px 32px #FFD70044;
   transform: translateY(-4px) scale(1.08);
-}
-
-@media (max-width: 600px) {
-  .back-to-top-btn {
-    width: 42px;
-    height: 42px;
-    font-size: 1.3rem;
-    bottom: 1.2rem;
-    right: 1.2rem;
-  }
 }
