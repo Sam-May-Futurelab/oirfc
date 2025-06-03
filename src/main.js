@@ -3,13 +3,14 @@ import './style.css'
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     console.log('OIR FC Website - Initializing...')
-      initializeNavigation()
+    initializeNavigation()
     initializeTabFunctionality() // This will handle the fixtures tabs
     initializeFormHandling()
     initializeSectionReveal();
     initializeGalleryCarousel();
     initializeMobileOptimizations();
     initializeBackToTop();
+    initializeStore();
     
     console.log('OIR FC Website - Initialization complete!')
 })
@@ -415,3 +416,153 @@ window.addEventListener('scroll', () => {
 document.getElementById('back-to-top')?.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+// Store products initialization
+function initializeStore() {
+    const storeGrid = document.getElementById('store-grid');
+    if (!storeGrid) return;
+
+    const products = [        {
+            id: 'home-kit',
+            title: 'OIR FC Home Kit 2025',
+            category: 'Apparel',
+            description: 'Official home kit featuring our iconic red jersey with premium quality fabric and modern fit.',
+            price: '£45.00',
+            originalPrice: '£55.00',
+            image: '/products/home-kit-2025.jpg',
+            badge: 'New',
+            sizes: ['S', 'M', 'L', 'XL', 'XXL']
+        },
+        {
+            id: 'away-kit',
+            title: 'OIR FC Away Kit 2025',
+            category: 'Apparel',
+            description: 'Sleek away kit in navy blue with gold accents. Perfect for training and matches.',
+            price: '£42.00',
+            originalPrice: null,
+            image: '/products/away-kit-2025.jpg',
+            badge: null,
+            sizes: ['S', 'M', 'L', 'XL', 'XXL']
+        },
+        {
+            id: 'water-bottle',
+            title: 'OIR FC Water Bottle',
+            category: 'Accessories',
+            description: 'Premium insulated water bottle with club logo. Keeps drinks cold for up to 12 hours.',
+            price: '£15.00',
+            originalPrice: null,
+            image: '/products/water-bottle.jpg',
+            badge: 'Popular',
+            sizes: null
+        },        {
+            id: 'hoodie',
+            title: 'Club Hoodie',
+            category: 'Apparel',
+            description: 'Comfortable cotton blend hoodie featuring embroidered club crest and colors.',
+            price: '£38.00',
+            originalPrice: null,
+            image: '/products/club-hoodie.jpg',
+            badge: null,
+            sizes: ['S', 'M', 'L', 'XL', 'XXL']
+        },
+        {
+            id: 'scarf',
+            title: 'Supporters Scarf',
+            category: 'Accessories',
+            description: 'Classic knitted scarf in club colors. Perfect for match days and cold weather.',
+            price: '£18.00',
+            originalPrice: '£22.00',
+            image: '/products/supporter-scarf.jpg',
+            badge: 'Sale',
+            sizes: null
+        },        {
+            id: 'cap',
+            title: 'Club Cap',
+            category: 'Accessories',
+            description: 'Adjustable baseball cap with embroidered logo. One size fits all.',
+            price: '£12.00',
+            originalPrice: null,
+            image: '/products/club-cap.jpg',
+            badge: null,
+            sizes: null
+        },
+    ];
+
+    // Generate product cards HTML
+    const productCards = products.map(product => {
+        const badge = product.badge ? `<div class="product-card__badge">${product.badge}</div>` : '';
+        const originalPrice = product.originalPrice ? `<span class="original-price">${product.originalPrice}</span>` : '';
+        const sizes = product.sizes ? `<div class="product-card__sizes">${product.sizes.map(size => `<span class="size-option" data-size="${size}">${size}</span>`).join('')}</div>` : '';
+
+        return `
+            <div class="product-card" data-product-id="${product.id}">
+                ${badge}
+                <div class="product-card__image">
+                    <img src="${product.image}" alt="${product.title}" loading="lazy">
+                </div>
+                <div class="product-card__content">
+                    <div class="product-card__category">${product.category}</div>
+                    <h3 class="product-card__title">${product.title}</h3>
+                    <p class="product-card__description">${product.description}</p>
+                    ${sizes}
+                    <div class="product-card__footer">
+                        <div class="product-card__price">
+                            ${originalPrice}${product.price}
+                        </div>
+                        <button class="product-card__btn" onclick="addToCart('${product.id}')">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    storeGrid.innerHTML = productCards;
+
+    // Add size selection functionality
+    addSizeSelectionHandlers();
+}
+
+// Size selection handlers
+function addSizeSelectionHandlers() {
+    document.querySelectorAll('.size-option').forEach(option => {
+        option.addEventListener('click', function() {
+            // Remove selected class from siblings
+            const siblings = this.parentElement.querySelectorAll('.size-option');
+            siblings.forEach(sibling => sibling.classList.remove('selected'));
+            
+            // Add selected class to clicked option
+            this.classList.add('selected');
+        });
+    });
+}
+
+// Placeholder for add to cart functionality
+function addToCart(productId) {
+    const productCard = document.querySelector(`[data-product-id="${productId}"]`);
+    const selectedSize = productCard.querySelector('.size-option.selected');
+    const productTitle = productCard.querySelector('.product-card__title').textContent;
+    
+    let message = `${productTitle} added to cart!`;
+    if (selectedSize) {
+        message = `${productTitle} (Size: ${selectedSize.dataset.size}) added to cart!`;
+    }
+    
+    // Simple alert for now - in a real app this would integrate with a cart system
+    alert(message);
+    
+    // Add visual feedback
+    const button = productCard.querySelector('.product-card__btn');
+    const originalText = button.textContent;
+    button.textContent = 'Added!';
+    button.style.background = '#28a745';
+    
+    setTimeout(() => {
+        button.textContent = originalText;
+        button.style.background = '';
+    }, 1500);
+}
+
+// Make addToCart globally available
+window.addToCart = addToCart;
