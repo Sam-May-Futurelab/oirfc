@@ -1572,16 +1572,21 @@ section.sr-visible + section::before {
   text-decoration: underline;
 }
 
-/* Social links smaller in footer */
-.footer .social-links {
-  gap: 0.7rem;
-  margin-top: 1rem;
+.footer__separator {
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0 0.3rem;
 }
 
-.footer .social-link {
-  width: 36px;
-  height: 36px;
-  font-size: 1.1rem;
+.footer__credit {
+  color: #FFD700 !important;
+  font-weight: 500;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.footer__credit:hover {
+  color: var(--accent-color) !important;
+  text-shadow: 0 0 8px #FFD70066;
+  text-decoration: none;
 }
 
 /* --- Compact Footer Styles --- */
