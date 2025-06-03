@@ -178,7 +178,7 @@ function initializeGalleryCarousel() {
 
     // Render images
     track.innerHTML = images.map(src =>
-        `<div class="gallery-tile"><img src="${src}" alt="OIR FC Gallery"></div>`
+        `<div class="gallery-tile"><img src="${src}" alt="OIR FC Gallery" loading="lazy"></div>`
     ).join('');
 
     // Carousel navigation
@@ -200,3 +200,12 @@ function initializeGalleryCarousel() {
     if (prevBtn) prevBtn.onclick = () => scrollCarousel(-1);
     if (nextBtn) nextBtn.onclick = () => scrollCarousel(1);
 }
+
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  btn.style.display = window.scrollY > 300 ? 'block' : 'none';
+});
+document.getElementById('back-to-top')?.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});

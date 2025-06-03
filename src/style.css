@@ -2276,3 +2276,43 @@ section.sr-visible + section::before {
     margin-bottom: 8px;
   }
 }
+
+/* Back to Top Button Styles */
+.back-to-top-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: var(--accent-color);
+  border: none;
+  box-shadow: 0 4px 16px #0C1B3322;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+  outline: none;
+}
+
+.back-to-top-btn:hover,
+.back-to-top-btn:focus {
+  background: #FFD700;
+  color: var(--primary-color);
+  box-shadow: 0 8px 32px #FFD70044;
+  transform: translateY(-4px) scale(1.08);
+}
+
+@media (max-width: 600px) {
+  .back-to-top-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 1.3rem;
+    bottom: 1.2rem;
+    right: 1.2rem;
+  }
+}
