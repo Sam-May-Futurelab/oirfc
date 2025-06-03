@@ -1,0 +1,882 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OIR FC - Official Football Club Website</title>
+    <meta name="description" content="Official website of OIR FC - competitive football club featuring team profiles, fixtures, news, and merchandise.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+      <div class="navbar__container">
+        <div class="navbar__logo">
+          <img src="/logo-oirfc.svg" alt="OIR FC Logo" class="navbar__logo-img">
+          <span class="navbar__logo-text">OIR FC</span>
+        </div>
+        <ul class="navbar__menu" id="navbar-menu">
+          <li class="navbar__item"><a href="#home" class="navbar__link">Home</a></li>
+          <li class="navbar__item"><a href="#about" class="navbar__link">About</a></li>
+          <li class="navbar__item"><a href="#team" class="navbar__link">Team</a></li>
+          <li class="navbar__item"><a href="#fixtures" class="navbar__link">Fixtures</a></li>
+          <li class="navbar__item"><a href="#news" class="navbar__link">News</a></li>
+          <li class="navbar__item"><a href="#gallery" class="navbar__link">Gallery</a></li>
+          <li class="navbar__item"><a href="#store" class="navbar__link">Store</a></li>
+          <li class="navbar__item"><a href="#contact" class="navbar__link">Contact</a></li>
+        </ul>
+        <div class="navbar__toggle" id="mobile-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero__video-bg">
+        <video autoplay muted loop playsinline>
+          <source src="/hero-video.mp4" type="video/mp4">
+          <!-- Fallback image -->
+        </video>
+        <div class="hero__video-overlay"></div>
+      </div>
+      <div class="hero__content">
+        <div class="hero__logo">
+          <img src="/logo-oirfc-large.svg" alt="OIR FC" class="hero__logo-img">
+        </div>
+        <h1 class="hero__title">OIR FOOTBALL CLUB</h1>
+        <p class="hero__subtitle">Excellence. Passion. Victory.</p>
+        <div class="hero__cta">
+          <a href="#fixtures" class="btn btn--primary">See Fixtures</a>
+          <a href="#contact" class="btn btn--secondary">Join the Club</a>
+          <a href="#store" class="btn btn--outline">Shop Merchandise</a>
+        </div>
+      </div>
+      <div class="hero__scroll-indicator">
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">About OIR FC</h2>
+          <p class="section-subtitle">Our Legacy, Our Values, Our Future</p>
+        </div>
+        <div class="about-content">
+          <div class="about-story">
+            <h3>Our Mission</h3>
+            <p>OIR FC represents excellence in competitive football, fostering talent, building champions, and creating lasting bonds within our community. Since our founding, we've been committed to developing players both on and off the pitch.</p>
+            
+            <h3>Core Values</h3>
+            <div class="values-grid">
+              <div class="value-card">
+                <div class="value-icon">⚽</div>
+                <h4>Excellence</h4>
+                <p>Striving for perfection in every match</p>
+              </div>
+              <div class="value-card">
+                <div class="value-icon">🤝</div>
+                <h4>Teamwork</h4>
+                <p>United we stand, divided we fall</p>
+              </div>
+              <div class="value-card">
+                <div class="value-icon">💪</div>
+                <h4>Discipline</h4>
+                <p>Dedication and commitment to success</p>
+              </div>
+              <div class="value-card">
+                <div class="value-icon">🏘️</div>
+                <h4>Community</h4>
+                <p>Giving back to those who support us</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="about-timeline">
+            <h3>Our Journey</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-year">2020</div>
+                <div class="timeline-content">
+                  <h4>Club Founded</h4>
+                  <p>OIR FC was established with a vision to create a competitive football community</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-year">2021</div>
+                <div class="timeline-content">
+                  <h4>First Championship</h4>
+                  <p>Won our first regional league championship in our debut season</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-year">2023</div>
+                <div class="timeline-content">
+                  <h4>Youth Academy</h4>
+                  <p>Launched our youth development program to nurture future talent</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-year">2025</div>
+                <div class="timeline-content">
+                  <h4>New Stadium</h4>
+                  <p>Opening our new state-of-the-art training facility and stadium</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="team">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Our Team</h2>
+          <p class="section-subtitle">Meet the Champions</p>
+        </div>
+        
+        <div class="team__filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="first-team">First Team</button>
+          <button class="filter-btn" data-filter="u21">U21s</button>
+          <button class="filter-btn" data-filter="coaches">Coaches</button>
+        </div>
+
+        <div class="team__grid" id="team-grid">
+          <div class="team-card" tabindex="0">
+            <div class="team-card-inner">
+              <div class="team-card-front">
+                <img src="/players/john-doe.jpg" alt="John Doe" class="team-card-avatar">
+                <h3>John Doe</h3>
+                <div class="position">Forward</div>
+                <div class="number">#9</div>
+              </div>
+              <div class="team-card-back">
+                <h4>Stats</h4>
+                <ul>
+                  <li>Appearances: 24</li>
+                  <li>Goals: 15</li>
+                  <li>Assists: 7</li>
+                  <li>Nationality: England</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="team-card" tabindex="0">
+            <div class="team-card-inner">
+              <div class="team-card-front">
+                <img src="/players/adam-smith.jpg" alt="Adam Smith" class="team-card-avatar">
+                <h3>Adam Smith</h3>
+                <div class="position">Goalkeeper</div>
+                <div class="number">#1</div>
+              </div>
+              <div class="team-card-back">
+                <h4>Stats</h4>
+                <ul>
+                  <li>Appearances: 30</li>
+                  <li>Clean Sheets: 12</li>
+                  <li>Saves: 85</li>
+                  <li>Nationality: Ireland</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="team-card" tabindex="0">
+            <div class="team-card-inner">
+              <div class="team-card-front">
+                <img src="/players/benjamin-lee.jpg" alt="Benjamin Lee" class="team-card-avatar">
+                <h3>Benjamin Lee</h3>
+                <div class="position">Right Back</div>
+                <div class="number">#2</div>
+              </div>
+              <div class="team-card-back">
+                <h4>Stats</h4>
+                <ul>
+                  <li>Appearances: 28</li>
+                  <li>Goals: 1</li>
+                  <li>Assists: 5</li>
+                  <li>Nationality: Wales</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="team-card" tabindex="0">
+            <div class="team-card-inner">
+              <div class="team-card-front">
+                <img src="/players/carlos-mendez.jpg" alt="Carlos Mendez" class="team-card-avatar">
+                <h3>Carlos Mendez</h3>
+                <div class="position">Centre Back</div>
+                <div class="number">#4</div>
+              </div>
+              <div class="team-card-back">
+                <h4>Stats</h4>
+                <ul>
+                  <li>Appearances: 29</li>
+                  <li>Goals: 2</li>
+                  <li>Blocks: 33</li>
+                  <li>Nationality: Spain</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="team-card" tabindex="0">
+            <div class="team-card-inner">
+              <div class="team-card-front">
+                <img src="/players/david-nguyen.jpg" alt="David Nguyen" class="team-card-avatar">
+                <h3>David Nguyen</h3>
+                <div class="position">Centre Back</div>
+                <div class="number">#5</div>
+              </div>
+              <div class="team-card-back">
+                <h4>Stats</h4>
+                <ul>
+                  <li>Appearances: 27</li>
+                  <li>Goals: 1</li>
+                  <li>Tackles: 41</li>
+                  <li>Nationality: Vietnam</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="team-card" tabindex="0">
+            <div class="team-card-inner">
+              <div class="team-card-front">
+                <img src="/players/ethan-brown.jpg" alt="Ethan Brown" class="team-card-avatar">
+                <h3>Ethan Brown</h3>
+                <div class="position">Left Back</div>
+                <div class="number">#3</div>
+              </div>
+              <div class="team-card-back">
+                <h4>Stats</h4>
+                <ul>
+                  <li>Appearances: 26</li>
+                  <li>Goals: 0</li>
+                  <li>Assists: 4</li>
+                  <li>Nationality: Scotland</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="team-card" tabindex="0">
+            <div class="team-card-inner">
+              <div class="team-card-front">
+                <img src="/players/felix-owusu.jpg" alt="Felix Owusu" class="team-card-avatar">
+                <h3>Felix Owusu</h3>
+                <div class="position">Defensive Mid</div>
+                <div class="number">#6</div>
+              </div>
+              <div class="team-card-back">
+                <h4>Stats</h4>
+                <ul>
+                  <li>Appearances: 25</li>
+                  <li>Goals: 2</li>
+                  <li>Passes: 1200</li>
+                  <li>Nationality: Ghana</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="team-card" tabindex="0">
+            <div class="team-card-inner">
+              <div class="team-card-front">
+                <img src="/players/gabriel-santos.jpg" alt="Gabriel Santos" class="team-card-avatar">
+                <h3>Gabriel Santos</h3>
+                <div class="position">Central Mid</div>
+                <div class="number">#8</div>
+              </div>
+              <div class="team-card-back">
+                <h4>Stats</h4>
+                <ul>
+                  <li>Appearances: 28</li>
+                  <li>Goals: 5</li>
+                  <li>Assists: 8</li>
+                  <li>Nationality: Brazil</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="team-card" tabindex="0">
+            <div class="team-card-inner">
+              <div class="team-card-front">
+                <img src="/players/harry-evans.jpg" alt="Harry Evans" class="team-card-avatar">
+                <h3>Harry Evans</h3>
+                <div class="position">Right Wing</div>
+                <div class="number">#7</div>
+              </div>
+              <div class="team-card-back">
+                <h4>Stats</h4>
+                <ul>
+                  <li>Appearances: 23</li>
+                  <li>Goals: 7</li>
+                  <li>Assists: 10</li>
+                  <li>Nationality: Australia</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="team-card" tabindex="0">
+            <div class="team-card-inner">
+              <div class="team-card-front">
+                <img src="/players/isaac-murphy.jpg" alt="Isaac Murphy" class="team-card-avatar">
+                <h3>Isaac Murphy</h3>
+                <div class="position">Left Wing</div>
+                <div class="number">#11</div>
+              </div>
+              <div class="team-card-back">
+                <h4>Stats</h4>
+                <ul>
+                  <li>Appearances: 22</li>
+                  <li>Goals: 6</li>
+                  <li>Assists: 9</li>
+                  <li>Nationality: USA</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="team-card" tabindex="0">
+            <div class="team-card-inner">
+              <div class="team-card-front">
+                <img src="/players/jacob-martin.jpg" alt="Jacob Martin" class="team-card-avatar">
+                <h3>Jacob Martin</h3>
+                <div class="position">Striker</div>
+                <div class="number">#10</div>
+              </div>
+              <div class="team-card-back">
+                <h4>Stats</h4>
+                <ul>
+                  <li>Appearances: 27</li>
+                  <li>Goals: 18</li>
+                  <li>Assists: 6</li>
+                  <li>Nationality: France</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fixtures Section -->
+    <section class="fixtures" id="fixtures">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Fixtures & Results</h2>
+          <p class="section-subtitle">Upcoming Matches & Recent Results</p>
+        </div>
+        
+        <div class="fixtures__tabs">
+          <button class="tab-btn active" data-tab="upcoming">Upcoming</button>
+          <button class="tab-btn" data-tab="results">Results</button>
+        </div>
+
+        <div class="fixtures__content">
+          <div class="tab-content active" id="upcoming">
+            <div class="fixtures__table-container">
+              <table class="fixtures__table" id="fixtures-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th class="team-column">Home</th>
+                    <th class="vs-column">VS</th>
+                    <th class="team-column">Away</th>
+                    <th>Competition</th>
+                    <th>Venue</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="fixture-row home-fixture">
+                    <td class="date">June 8, 2025</td>
+                    <td class="time">15:00</td>
+                    <td class="home-team">
+                      <div class="team-info">
+                        <span class="team-logo">🔴</span>
+                        <span class="team-name">OIR FC</span>
+                      </div>
+                    </td>
+                    <td class="vs">VS</td>
+                    <td class="away-team">
+                      <div class="team-info">
+                        <span class="team-logo">🔵</span>
+                        <span class="team-name">City United</span>
+                      </div>
+                    </td>
+                    <td class="competition">Premier League</td>
+                    <td class="venue">OIR Stadium</td>
+                  </tr>
+                  <tr class="fixture-row away-fixture">
+                    <td class="date">June 15, 2025</td>
+                    <td class="time">18:30</td>
+                    <td class="home-team">
+                      <div class="team-info">
+                        <span class="team-logo">🟡</span>
+                        <span class="team-name">Rovers FC</span>
+                      </div>
+                    </td>
+                    <td class="vs">VS</td>
+                    <td class="away-team">
+                      <div class="team-info">
+                        <span class="team-logo">🔴</span>
+                        <span class="team-name">OIR FC</span>
+                      </div>
+                    </td>
+                    <td class="competition">Premier League</td>
+                    <td class="venue">Rovers Ground</td>
+                  </tr>
+                  <tr class="fixture-row home-fixture">
+                    <td class="date">June 22, 2025</td>
+                    <td class="time">16:00</td>
+                    <td class="home-team">
+                      <div class="team-info">
+                        <span class="team-logo">🔴</span>
+                        <span class="team-name">OIR FC</span>
+                      </div>
+                    </td>
+                    <td class="vs">VS</td>
+                    <td class="away-team">
+                      <div class="team-info">
+                        <span class="team-logo">🟢</span>
+                        <span class="team-name">Athletic FC</span>
+                      </div>
+                    </td>
+                    <td class="competition">FA Cup</td>
+                    <td class="venue">OIR Stadium</td>
+                  </tr>
+                  <tr class="fixture-row away-fixture">
+                    <td class="date">June 29, 2025</td>
+                    <td class="time">14:00</td>
+                    <td class="home-team">
+                      <div class="team-info">
+                        <span class="team-logo">⚫</span>
+                        <span class="team-name">United Rangers</span>
+                      </div>
+                    </td>
+                    <td class="vs">VS</td>
+                    <td class="away-team">
+                      <div class="team-info">
+                        <span class="team-logo">🔴</span>
+                        <span class="team-name">OIR FC</span>
+                      </div>
+                    </td>
+                    <td class="competition">Premier League</td>
+                    <td class="venue">Rangers Stadium</td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- Fallback message if table is empty -->
+              <div id="fixtures-fallback" style="display:none; color:#FFD700; text-align:center; margin-top:1rem;">
+                No upcoming fixtures at this time.
+              </div>
+            </div>
+          </div>
+          <div class="tab-content" id="results">
+            <div class="fixtures__table-container">
+              <table class="fixtures__table results-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th class="team-column">Home</th>
+                    <th class="score-column">Score</th>
+                    <th class="team-column">Away</th>
+                    <th>Competition</th>
+                    <th>Result</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="fixture-row result-win">
+                    <td class="date">May 25, 2025</td>
+                    <td class="home-team">
+                      <div class="team-info">
+                        <span class="team-logo">🔴</span>
+                        <span class="team-name">OIR FC</span>
+                      </div>
+                    </td>
+                    <td class="score">
+                      <span class="score-display">3 - 1</span>
+                    </td>
+                    <td class="away-team">
+                      <div class="team-info">
+                        <span class="team-logo">🔵</span>
+                        <span class="team-name">Blue Stars</span>
+                      </div>
+                    </td>
+                    <td class="competition">Premier League</td>
+                    <td class="result">
+                      <span class="result-badge win">W</span>
+                    </td>
+                  </tr>
+                  <tr class="fixture-row result-draw">
+                    <td class="date">May 18, 2025</td>
+                    <td class="home-team">
+                      <div class="team-info">
+                        <span class="team-logo">🟡</span>
+                        <span class="team-name">Yellow FC</span>
+                      </div>
+                    </td>
+                    <td class="score">
+                      <span class="score-display">2 - 2</span>
+                    </td>
+                    <td class="away-team">
+                      <div class="team-info">
+                        <span class="team-logo">🔴</span>
+                        <span class="team-name">OIR FC</span>
+                      </div>
+                    </td>
+                    <td class="competition">Premier League</td>
+                    <td class="result">
+                      <span class="result-badge draw">D</span>
+                    </td>
+                  </tr>
+                  <tr class="fixture-row result-win">
+                    <td class="date">May 11, 2025</td>
+                    <td class="home-team">
+                      <div class="team-info">
+                        <span class="team-logo">🔴</span>
+                        <span class="team-name">OIR FC</span>
+                      </div>
+                    </td>
+                    <td class="score">
+                      <span class="score-display">4 - 0</span>
+                    </td>
+                    <td class="away-team">
+                      <div class="team-info">
+                        <span class="team-logo">🟢</span>
+                        <span class="team-name">Green United</span>
+                      </div>
+                    </td>
+                    <td class="competition">FA Cup</td>
+                    <td class="result">
+                      <span class="result-badge win">W</span>
+                    </td>
+                  </tr>
+                  <tr class="fixture-row result-loss">
+                    <td class="date">May 4, 2025</td>
+                    <td class="home-team">
+                      <div class="team-info">
+                        <span class="team-logo">⚫</span>
+                        <span class="team-name">Black Hawks</span>
+                      </div>
+                    </td>
+                    <td class="score">
+                      <span class="score-display">2 - 1</span>
+                    </td>
+                    <td class="away-team">
+                      <div class="team-info">
+                        <span class="team-logo">🔴</span>
+                        <span class="team-name">OIR FC</span>
+                      </div>
+                    </td>
+                    <td class="competition">Premier League</td>
+                    <td class="result">
+                      <span class="result-badge loss">L</span>
+                    </td>
+                  </tr>
+                  <tr class="fixture-row result-win">
+                    <td class="date">Apr 27, 2025</td>
+                    <td class="home-team">
+                      <div class="team-info">
+                        <span class="team-logo">🔴</span>
+                        <span class="team-name">OIR FC</span>
+                      </div>
+                    </td>
+                    <td class="score">
+                      <span class="score-display">1 - 0</span>
+                    </td>
+                    <td class="away-team">
+                      <div class="team-info">
+                        <span class="team-logo">🔵</span>
+                        <span class="team-name">City Rovers</span>
+                      </div>
+                    </td>
+                    <td class="competition">Premier League</td>
+                    <td class="result">
+                      <span class="result-badge win">W</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news" id="news">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Latest News</h2>
+          <p class="section-subtitle">Stay Updated with OIR FC</p>
+        </div>
+        
+        <div class="news__featured">
+          <article class="featured-article">
+            <div class="featured-article__image">
+              <img src="/news-featured.jpg" alt="Featured News">
+              <div class="featured-article__category">Match Report</div>
+            </div>
+            <div class="featured-article__content">
+              <h3>OIR FC Secures Victory in Championship Final</h3>
+              <p>In a thrilling match that went into extra time, OIR FC emerged victorious with a 3-2 win against rivals City United, securing our place as regional champions...</p>
+              <div class="featured-article__meta">
+                <span class="date">June 1, 2025</span>
+                <span class="author">By Sports Desk</span>
+              </div>
+              <a href="#" class="btn btn--primary">Read More</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="news__grid" id="news-grid">
+          <!-- News articles will be populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Gallery</h2>
+          <p class="section-subtitle">Capturing Our Journey</p>
+        </div>
+        
+        <div class="gallery__tabs">
+          <button class="tab-btn active" data-tab="photos">Photos</button>
+          <button class="tab-btn" data-tab="videos">Videos</button>
+          <button class="tab-btn" data-tab="fan-moments">Fan Moments</button>
+        </div>
+
+        <div class="gallery__content">
+          <div class="tab-content active" id="photos">
+            <div class="gallery__grid masonry-grid" id="photo-gallery">
+              <!-- Photos will be populated by JavaScript -->
+            </div>
+          </div>
+          <div class="tab-content" id="videos">
+            <div class="gallery__grid" id="video-gallery">
+              <!-- Videos will be populated by JavaScript -->
+            </div>
+          </div>
+          <div class="tab-content" id="fan-moments">
+            <div class="gallery__grid masonry-grid" id="fan-gallery">
+              <!-- Fan moments will be populated by JavaScript -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Store Section -->
+    <section class="store" id="store">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Official Store</h2>
+          <p class="section-subtitle">Show Your Support</p>
+        </div>
+        
+        <div class="store__partner">
+          <p>Official Kit Partner</p>
+          <img src="/partner-logo.png" alt="Kit Partner" class="partner-logo">
+        </div>
+
+        <div class="store__grid" id="store-grid">
+          <!-- Products will be populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Join Section -->
+    <section class="join" id="join">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Join OIR FC</h2>
+          <p class="section-subtitle">Be Part of Something Great</p>
+        </div>
+        
+        <div class="join__options">
+          <div class="join-card">
+            <div class="join-card__icon">⚽</div>
+            <h3>Player Tryouts</h3>
+            <p>Think you have what it takes? Join our tryouts and become part of the team.</p>
+            <a href="#" class="btn btn--primary">Apply Now</a>
+          </div>
+          <div class="join-card">
+            <div class="join-card__icon">🤝</div>
+            <h3>Volunteer</h3>
+            <p>Help us grow by volunteering at events, matches, and community programs.</p>
+            <a href="#" class="btn btn--primary">Get Involved</a>
+          </div>
+          <div class="join-card">
+            <div class="join-card__icon">🏆</div>
+            <h3>Fan Membership</h3>
+            <p>Get exclusive access to events, merchandise discounts, and insider content.</p>
+            <a href="#" class="btn btn--primary">Join Fans</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sponsors Section -->
+    <section class="sponsors" id="sponsors">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Our Partners</h2>
+          <p class="section-subtitle">Supporting Excellence</p>
+        </div>
+        
+        <div class="sponsors__grid" id="sponsors-grid">
+          <!-- Sponsors will be populated by JavaScript -->
+        </div>
+        
+        <div class="sponsors__cta">
+          <h3>Become a Sponsor</h3>
+          <p>Join our family of supporters and help us achieve greatness</p>
+          <a href="#contact" class="btn btn--primary">Partner With Us</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Contact Us</h2>
+          <p class="section-subtitle">Get in Touch</p>
+        </div>
+        
+        <div class="contact__content">
+          <div class="contact__form">
+            <form id="contact-form">
+              <div class="form-group">
+                <label for="contact-type">Type of Inquiry</label>
+                <select id="contact-type" name="type" required>
+                  <option value="">Select...</option>
+                  <option value="general">General</option>
+                  <option value="trials">Trials</option>
+                  <option value="media">Media</option>
+                  <option value="sponsorship">Sponsorship</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary">Send Message</button>
+            </form>
+          </div>
+          
+          <div class="contact__info">
+            <div class="contact__details">
+              <h3>Stadium Location</h3>
+              <p>OIR FC Training Ground<br>
+                 123 Football Way<br>
+                 Sports City, SC 12345</p>
+              
+              <h3>Contact Information</h3>
+              <p>📧 info@oirfc.com<br>
+                 📞 +1 (555) 123-4567<br>
+                 📱 +1 (555) 987-6543</p>
+            </div>
+            
+            <div class="contact__map">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.123456789!2d-74.0060152!3d40.7127753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQyJzQ2LjAiTiA3NMKwMDAnMjEuNyJX!5e0!3m2!1sen!2sus!4v1234567890123"
+                width="100%" 
+                height="250" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+              </iframe>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact__social">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Facebook">📘</a>
+            <a href="#" class="social-link" aria-label="Twitter">🐦</a>
+            <a href="#" class="social-link" aria-label="Instagram">📷</a>
+            <a href="#" class="social-link" aria-label="YouTube">📹</a>
+            <a href="#" class="social-link" aria-label="TikTok">🎵</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__content">
+          <div class="footer__section">
+            <div class="footer__logo">
+              <img src="/logo-oirfc.svg" alt="OIR FC">
+              <span>OIR FC</span>
+            </div>
+            <p>Excellence. Passion. Victory.</p>
+          </div>
+          
+          <div class="footer__section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#team">Team</a></li>
+              <li><a href="#fixtures">Fixtures</a></li>
+              <li><a href="#news">News</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer__section">
+            <h4>Get Involved</h4>
+            <ul>
+              <li><a href="#join">Join the Club</a></li>
+              <li><a href="#store">Merchandise</a></li>
+              <li><a href="#sponsors">Partnerships</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer__section">
+            <h4>Connect</h4>
+            <div class="social-links">
+              <a href="#" aria-label="Facebook">📘</a>
+              <a href="#" aria-label="Twitter">🐦</a>
+              <a href="#" aria-label="Instagram">📷</a>
+              <a href="#" aria-label="YouTube">📹</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer__bottom">
+          <p>&copy; 2025 OIR FC. All rights reserved.</p>
+          <div class="footer__legal">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="/src/main.js"></script>
+    
+  </body>
+</html>
