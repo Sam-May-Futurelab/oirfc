@@ -1394,18 +1394,6 @@ section.sr-visible + section::before {
   text-decoration: underline;
 }
 
-/* Social links smaller in footer */
-.footer .social-links {
-  gap: 0.7rem;
-  margin-top: 1rem;
-}
-
-.footer .social-link {
-  width: 36px;
-  height: 36px;
-  font-size: 1.1rem;
-}
-
 /* Additional Sections */
 .fixtures, .news, .gallery, .store, .join, .sponsors {
   padding: 6rem 0;
@@ -2086,7 +2074,7 @@ section.sr-visible + section::before {
   max-width: 900px;
   margin: 0 auto 2rem auto;
   overflow: hidden;
-  min-height: 320px;
+  min-height: 420px; /* Increased for larger images */
 }
 
 .gallery-carousel__track {
@@ -2098,9 +2086,9 @@ section.sr-visible + section::before {
 }
 
 .gallery-tile {
-  flex: 0 0 260px;
-  width: 260px;
-  height: 260px;
+  flex: 0 0 360px;
+  width: 360px;
+  height: 360px;
   background: #eee;
   border-radius: 16px;
   overflow: hidden;
@@ -2146,14 +2134,15 @@ section.sr-visible + section::before {
   box-shadow: 0 4px 16px #FFD70033;
 }
 
+/* Responsive: larger images on tablet, still scale down on mobile */
 @media (max-width: 900px) {
   .gallery-carousel__track {
     gap: 1rem;
   }
   .gallery-tile {
-    flex: 0 0 180px;
-    width: 180px;
-    height: 180px;
+    flex: 0 0 240px;
+    width: 240px;
+    height: 240px;
   }
 }
 
@@ -2162,9 +2151,9 @@ section.sr-visible + section::before {
     gap: 0.5rem;
   }
   .gallery-tile {
-    flex: 0 0 120px;
-    width: 120px;
-    height: 120px;
+    flex: 0 0 140px;
+    width: 140px;
+    height: 140px;
   }
 }
 
