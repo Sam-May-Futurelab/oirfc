@@ -625,7 +625,7 @@
         <div class="news__featured">
           <article class="featured-article">
             <div class="featured-article__image">
-              <img src="/news-featured.jpg" alt="Featured News">
+              <img src="/news-featured.png" alt="Featured News">
               <div class="featured-article__category">Match Report</div>
             </div>
             <div class="featured-article__content">
@@ -643,7 +643,7 @@
         <div class="news__grid" id="news-grid">
           <article class="news-card">
             <div class="news-card__image">
-              <img src="/news-sbcl.jpg" alt="SBCL Champions">
+              <img src="/news-sbcl.png" alt="SBCL Champions">
             </div>
             <div class="news-card__content">
               <div class="news-card__category">🏆 SBCL Champions</div>
@@ -656,7 +656,7 @@
           </article>
           <article class="news-card">
             <div class="news-card__image">
-              <img src="/news-middlesex.jpg" alt="Middlesex Division One Champions">
+              <img src="/news-middlesex.png" alt="Middlesex Division One Champions">
             </div>
             <div class="news-card__content">
               <div class="news-card__category">🏆 Middlesex Division One</div>
@@ -669,7 +669,7 @@
           </article>
           <article class="news-card">
             <div class="news-card__image">
-              <img src="/news-imfl.jpg" alt="IMFL Division Three Champions">
+              <img src="/news-imfl.png" alt="IMFL Division Three Champions">
             </div>
             <div class="news-card__content">
               <div class="news-card__category">🏆 IMFL Division Three</div>
@@ -691,17 +691,19 @@
           <h2 class="section-title">Gallery</h2>
           <p class="section-subtitle">Capturing Our Journey</p>
         </div>
-        
         <div class="gallery__tabs">
           <button class="tab-btn active" data-tab="photos">Photos</button>
           <button class="tab-btn" data-tab="videos">Videos</button>
           <button class="tab-btn" data-tab="fan-moments">Fan Moments</button>
         </div>
-
         <div class="gallery__content">
           <div class="tab-content active" id="photos">
-            <div class="gallery__grid masonry-grid" id="photo-gallery">
-              <!-- Photos will be populated by JavaScript -->
+            <div class="gallery-carousel">
+              <button class="carousel-btn carousel-btn--prev" aria-label="Previous">&lt;</button>
+              <div class="gallery-carousel__track" id="gallery-carousel-track">
+                <!-- Gallery images will be injected here by JS -->
+              </div>
+              <button class="carousel-btn carousel-btn--next" aria-label="Next">&gt;</button>
             </div>
           </div>
           <div class="tab-content" id="videos">

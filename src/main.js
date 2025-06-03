@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeNavigation()
     initializeTabFunctionality() // This will handle the fixtures tabs
     initializeFormHandling()
+    initializeSectionReveal();
+    initializeGalleryCarousel();
     
     console.log('OIR FC Website - Initialization complete!')
 })
@@ -141,4 +143,60 @@ function initializeFormHandling() {
             joinForm.reset()
         })
     }
+}
+
+function initializeSectionReveal() {
+    const sections = document.querySelectorAll('section');
+    const fadeCards = () => {
+        // Animate cards in news and team sections
+        document.querySelectorAll('.news-card, .team-card').forEach(card => {
+            const rect = card.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.92) {
+                card.classList.add('sr-visible');
+            }
+        });
+    };
+    const reveal = () => {
+        const trigger = window.innerHeight * 0.92;
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top < trigger) {
+                section.classList.add('sr-visible');
+            }
+        });
+        fadeCards();
+    };
+    window.addEventListener('scroll', reveal, { passive: true });
+    reveal();
+}
+
+function initializeGalleryCarousel() {
+    // Add all your gallery images here (example: photo1.jpg to photo30.jpg)
+    const images = Array.from({ length: 30 }, (_, i) => `/gallery/photo${i + 1}.jpg`);
+    const track = document.getElementById('gallery-carousel-track');
+    if (!track) return;
+
+    // Render images
+    track.innerHTML = images.map(src =>
+        `<div class="gallery-tile"><img src="${src}" alt="OIR FC Gallery"></div>`
+    ).join('');
+
+    // Carousel navigation
+    const prevBtn = document.querySelector('.carousel-btn--prev');
+    const nextBtn = document.querySelector('.carousel-btn--next');
+    let scrollAmount = 0;
+    const tileWidth = track.querySelector('.gallery-tile')?.offsetWidth || 260;
+    const gap = parseInt(getComputedStyle(track).gap) || 16;
+
+    function scrollCarousel(direction) {
+        const visibleTiles = Math.floor(track.offsetWidth / (tileWidth + gap));
+        const maxScroll = (tileWidth + gap) * (images.length - visibleTiles);
+        scrollAmount += direction * (tileWidth + gap);
+        if (scrollAmount < 0) scrollAmount = 0;
+        if (scrollAmount > maxScroll) scrollAmount = maxScroll;
+        track.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+    }
+
+    if (prevBtn) prevBtn.onclick = () => scrollCarousel(-1);
+    if (nextBtn) nextBtn.onclick = () => scrollCarousel(1);
 }
