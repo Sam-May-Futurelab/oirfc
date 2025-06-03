@@ -1401,8 +1401,8 @@ section.sr-visible + section::before {
     position: relative;
   }
   
-  /* Add a visual separator between match details and competition info */
-  .fixtures__table .competition {
+  /* Add a visual separator between match details and result info */
+  .fixtures__table .result {
     margin-top: 0.5rem;
     padding-top: 0.5rem;
     border-top: 1px solid rgba(12, 27, 51, 0.1);
@@ -1448,12 +1448,12 @@ section.sr-visible + section::before {
   }
   
   /* Center competition badge on mobile */
-  .fixtures__table .competition:before {
-    content: "";
+  .fixtures__table .result:before {
+    content: "Result: ";
     min-width: auto;
   }
   
-  .fixtures__table .competition {
+  .fixtures__table .result {
     text-align: center;
     padding: 0.75rem 0;
   }
